@@ -6,83 +6,115 @@ body, html {
 * {
   font-family: Inter;
   box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 header {
+  max-width: 700px;
+  margin: 3rem auto;
   text-align: center;
+  overflow: hidden;
+  padding: 0 0 20px 0 !important;
 }
 header h1 {
   font-family: "Times New Roman";
+  margin: 0;
+  padding: 1rem 0;
+  background: green;
+  color: white;
 }
 
 body {
-  background: #d1d3d1;
+  background: rgb(181, 255, 181);
+  padding: 1rem;
 }
 
-::marker {
-  color: red;
-  accent-color: red;
+.card, main .question, .container .question, header {
+  border-bottom: 5px solid green;
+  border-radius: 10px;
+  padding: 2rem;
+  background: white;
+  transition: 0.3s;
+}
+
+.card:hover, main .question:hover, .container .question:hover, header:hover {
+  box-shadow: 3px 10px 10px rgb(56, 133, 4);
+}
+
+input[type=radio] {
+  visibility: hidden;
 }
 
 input[type=radio]:after {
   width: 15px;
   height: 15px;
-  border-radius: 15px;
+  -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+          clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   top: -2px;
   left: -1px;
   position: relative;
-  background-color: #d1d3d1;
+  background-color: black;
   content: "";
   display: inline-block;
   visibility: visible;
-  border: 2px solid white;
-  -webkit-clip-path: polygon(0 0, 50% 0, 100% 0, 100% 100%, 50% 100%, 0 100%);
-          clip-path: polygon(0 0, 50% 0, 100% 0, 100% 100%, 50% 100%, 0 100%);
 }
 
 input[type=radio]:checked:after {
-  width: 15px;
+  width: 5px;
   height: 15px;
-  border-radius: 15px;
   top: -2px;
   left: -1px;
   position: relative;
-  background-color: #00ff55;
   content: "";
   display: inline-block;
   visibility: visible;
-  border: 2px solid rgb(0, 0, 0);
+  border: 2px solid green;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(45deg);
+  -webkit-clip-path: none;
+          clip-path: none;
+  background: transparent;
 }
 
-main {
-  padding: 0 20px;
-  max-width: 700px;
-  margin: auto;
+input[type=radio]:checked + label {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
 }
-main .question {
+
+main, .container {
   padding: 20px;
-  border: 2px solid green;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  background: #123;
-  color: white;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
 }
-main .question .options {
+main .question, .container .question {
+  margin-bottom: 25px;
+  color: rgb(0, 0, 0);
+  text-align: left;
+}
+main .question .options, .container .question .options {
   margin-top: 10px;
 }
-main .question .option {
+main .question .option, .container .question .option {
   margin-bottom: 10px;
 }
 
-.button, #start {
-  width: 50%;
-  padding: 1rem 0;
+.button, #start, #submit {
+  width: min(50%, 200px);
+  padding: 10px 0;
   border-radius: 25px;
-  box-shadow: 0 10px 0 black;
   background: green;
   font-size: 18px;
   text-transform: uppercase;
   border: none;
   margin: auto;
   color: white;
+}
+
+#submit {
+  display: none;
 }/*# sourceMappingURL=style.css.map */

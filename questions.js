@@ -44,7 +44,7 @@ export const questions = [
             "Equal Operator",
             "Inequality Operator",
         ],
-        answer: 4,
+        answer: 2,
     },
     {
         "id": "question5",
