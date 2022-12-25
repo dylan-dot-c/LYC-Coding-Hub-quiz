@@ -28,7 +28,7 @@ header {
 
 body {
     background: rgb(181, 255, 181);
-    padding: 1rem;
+    // padding: 1rem;
 }
 
 .card {
@@ -46,54 +46,87 @@ body {
 }
 
 input[type='radio'] {
-    visibility: hidden;
-}
-input[type='radio']:after {
-    width: 15px;
-    height: 15px;
-    // border-radius: 15px;
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    // visibility: hidden;
+    // accent-color: red;
 
-    top: -2px;
-    left: -1px;
-    position: relative;
-    background-color: black;
-    content: '';
-    display: inline-block;
-    visibility: visible;
-    // border: 2px solid rgb(0, 0, 0);
-    // clip-path: polygon(0 0, 50% 0, 100% 0, 100% 100%, 50% 100%, 0 100%);
+    &:checked {
+        accent-color: green;
+    }
 }
+// input[type='radio']:after {
+//     width: 15px;
+//     height: 15px;
+//     border-radius: 15px;
+//     top: -2px;
+//     left: -1px;
+//     position: relative;
+//     background-color: transparent;
+//     content: '';
+//     display: inline-block;
+//     visibility: visible;
+//     border: 2px solid rgb(0, 0, 0);
+// }
 
-input[type='radio']:checked:after {
-    width: 5px;
-    height: 15px;
-    // border-radius: 15px;
-    top: -2px;
-    left: -1px;
-    position: relative;
-    // background-color: #00ff55;
-    content: '';
-    display: inline-block;
-    visibility: visible;
-    border: 2px solid green;
-    border-top-color: transparent;
-    border-left-color: transparent;
-    transform: rotate(45deg);
-    clip-path: none;
-    background: transparent;
-    // padding: 5px;
-}
+// input[type='radio']:checked:after {
+//     width: 5px;
+//     height: 15px;
+//     border-radius: 0;
+//     top: -2px;
+//     left: -1px;
+//     position: relative;
+//     // background-color: #00ff55;
+//     content: '';
+//     display: inline-block;
+//     visibility: visible;
+//     border: 2px solid rgb(0, 0, 0);
+//     border-top-color: transparent;
+//     border-left-color: transparent;
+//     transform: rotate(45deg);
+//     clip-path: none;
+//     background: transparent;
+//     // padding: 5px;
+// }
 
 input[type='radio']:checked + label {
-    // text-decoration: underline;
-    // text-decoration-thickness: 3px;
-    // text-decoration-color: green;
     color: rgb(0, 0, 0);
     font-weight: bold;
 }
+.explanation {
+    padding-top: 10px;
+    border-top: 2px solid black;
+}
 
-main, .container {
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 2px solid green;
+    border-top-color: transparent;
+    border-radius: 50%;
+    // border-left-color: transparent;
+    animation: spin .5s linear infinite;
+}
+
+.modal {
+    display: none;
+}
+
+@keyframes spin {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+#time {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: auto;
+    padding: 20px;
+    border-radius: 25px;
+    font-size: 20px;
+    background: rgb(17, 51, 31);
+    color: white;
+}
+form, .container {
     padding: 20px;
     max-width: 700px;
     margin: 0 auto;

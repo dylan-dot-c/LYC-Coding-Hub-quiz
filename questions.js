@@ -33,7 +33,7 @@ export const questions = [
             "apple_23",
         ],
         answer: 4,
-        explantion: " <b>apple_23</b> is a valid variable name because it doesn't start with numbers, doesn't have any special characters such as [$#@!%^&*] and has no spaces."
+        explanation: " <b>apple_23</b> is a valid variable name because it doesn't start with numbers, doesn't have any special characters such as [$#@!%^&*] and has no spaces."
     },
     {
         id: "question4",
@@ -45,6 +45,7 @@ export const questions = [
             "Inequality Operator",
         ],
         answer: 2,
+        explanation: "The name of this operator '==' is the equivalence operator because it tests if 2=two or more values are equal to each other",
     },
     {
         "id": "question5",
