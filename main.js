@@ -12,14 +12,14 @@ const start = document.getElementById('start');
 const timeDiv = document.getElementById('time')
 var submit;
 
-const questionArray = Array.from({length: 9}, (_, i) => `question${i+1}`)
-const questionBlock = Array.from({length: 9}, (_, i) => `questionBlock${i+1}`)
+const questionArray = Array.from({length: 20}, (_, i) => `question${i+1}`)
+const questionBlock = Array.from({length: 20}, (_, i) => `questionBlock${i+1}`)
 
 start.addEventListener('click', renderQuiz)
 // 
 
 function renderQuiz() {
-    startTimer()
+    // startTimer()
     start.style.display = "none";
     // 
     questions.forEach( (question, index) => {
@@ -46,19 +46,21 @@ function renderQuiz() {
         main.append(div)
         
     })
-    var sub = document.createElement('input');
-        sub.type = 'submit';
-        sub.value  = "Submit Quiz"
-        sub.id = "submit"
+    // var sub = document.createElement('input');
+    //     sub.type = 'submit';
+    //     sub.value  = "Submit Quiz"
+    //     sub.id = "submit"
 
-        main.append(sub)
+    //     main.append(sub)
+
     submit = document.getElementById('submit');
     submit.addEventListener('click', markQuiz)
     submit.style.display = "block";
 }
 
 function markQuiz(e)  {
-    e.preventDefault()
+    // e.preventDefault()
+    submit.style.display = "none";
     console.log(questionArray)
   
 
@@ -73,18 +75,27 @@ function markQuiz(e)  {
     let correct = 0
     let grade = 0
 
-    for(let i=0; i<9; i++) {
+    for(let i=0; i<20; i++) {
         console.log(questions[i].answer-1, quests[i]);
         if(questions[i].answer-1 === quests[i]) {
             correct+=1;
             // console.log(questions[i].answer-1, quests[i]);
         }else {
             console.log("INcorrect")
+
         }
     }
 
-    grade = ((correct*100) / 9).toFixed(2)
+    grade = ((correct*100) / 20).toFixed(2)
     console.log(`Congrats you have gotten ${grade}`);
+
+    const result = document.getElementById("results")
+
+    result.innerHTML = `
+    <h2>Congrats!!</h2>
+    <hr/>
+    <p>You have gotten ${correct} / 20<br/> That is ${grade}. Well Done.
+    `
 
 
     // document.getElementById('grade').innerHTML = grade;
@@ -110,22 +121,22 @@ function markQuiz(e)  {
 }
 
 
-function startTimer() {
-    let time = 100
-    let seconds = time % 60
-    let minutes = time / 60
+// function startTimer() {
+//     let time = 100
+//     let seconds = time % 60
+//     let minutes = time / 60
 
-    let timer = setInterval( function() {
-        time -=1
-        if(time==0) {
-            alert("TIME UP!")
-            // sub.click
-            // markQuiz(e)
-            submit.click()
-        }
-        seconds = time % 60
-        minutes = (Math.floor(time / 60))
-        timeDiv.innerHTML = `Time Left: ${minutes}:${('00'+seconds).slice(-2)}`
+//     let timer = setInterval( function() {
+//         time -=1
+//         if(time==0) {
+//             alert("TIME UP!")
+//             // sub.click
+//             // markQuiz(e)
+//             submit.click()
+//         }
+//         seconds = time % 60
+//         minutes = (Math.floor(time / 60))
+//         timeDiv.innerHTML = `Time Left: ${minutes}:${('00'+seconds).slice(-2)}`
 
-    }, 1000)
-}
+//     }, 1000)
+// }
